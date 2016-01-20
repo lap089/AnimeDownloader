@@ -20,6 +20,7 @@ import java.io.IOException;
 public class AnimeRyuanime {
 
     int type = 0;       // 1: myvidstream    2: mp4engine    //3: fs1.mp4engine
+    String srv = "srv";       // server
     String url;
     String downloadLink;
     boolean isType3 = false;
@@ -101,6 +102,8 @@ public class AnimeRyuanime {
                         id = a;
                     if(a.compareTo("fs1")==0)
                         isType3 = true;
+                    if(a.contains(srv) && a.length()<=4)
+                        srv = a;
                     Log.d("Check split:",a);
 
                 }
@@ -127,7 +130,7 @@ public class AnimeRyuanime {
 
 
             if (type == 1) {
-                String template = "http://srv5.myvidstream.net:182/d/";
+                String template = "http://" + srv + ".myvidstream.net:182/d/";
                 String dataType = ".mp4";
                 String name = "AnimeDownloader";
                 downloadLink = template + result + "/" + name + dataType + "?start=0";
