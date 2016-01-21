@@ -28,7 +28,7 @@ public class AnimeGogo_tv {
     ArrayList<String> linkList;
     Context context;
     ProgressDialog mProgressDialog;
-
+    String title;
     public AnimeGogo_tv(Context context)
     {
         this.context = context;
@@ -83,7 +83,9 @@ public class AnimeGogo_tv {
 
 
                 Elements links = doc.select("div[link-watch]");
-                  links.size();
+                Elements name = doc.select("div[class=title_name]");
+
+                title = name.text();
                 int count = 0;
                 for (Element link : links) {
                     ++count;
@@ -101,13 +103,14 @@ public class AnimeGogo_tv {
                     ++firstindex;
 
                     downloadOptions.add("mp4Upload-" + count);
-                    linkList.add(playerString.substring(firstindex, lastindex + 1));
+                    downloadLink = playerString.substring(firstindex, lastindex + 1);
+                    downloadLink = downloadLink.replace("video",title).replace(" ","+");
 
-
-
-                    return "Success";
+                    linkList.add(downloadLink);
 
                 }
+
+                return "Success";
             }catch(IOException e){
                     e.printStackTrace();
                 }
