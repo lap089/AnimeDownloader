@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.user.animedownloader.Engines.AnimeRyuanime;
+import com.example.user.animedownloader.Engines.AnimeGogo_tv;
 
 public class MainActivity extends AppCompatActivity {
     Button downloadButton;
@@ -33,8 +33,17 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-             AnimeRyuanime anime =    new AnimeRyuanime(MainActivity.this);
+          //   AnimeRyuanime anime =    new AnimeRyuanime(MainActivity.this);
+          //      anime.loadDataAsync(input.getText().toString());
+
+           //     String downloadLink = "http://www6.mp4upload.com:182/d/sgxtzbcvz3b4quuo32ues2yslfcedxbgg3zoriphulzof3a2yqb2fcgr/video.mp4?start=0";
+
+                AnimeGogo_tv anime = new AnimeGogo_tv(MainActivity.this);
                 anime.loadDataAsync(input.getText().toString());
+//
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
+//                startActivity(intent);
 
             }
         });
