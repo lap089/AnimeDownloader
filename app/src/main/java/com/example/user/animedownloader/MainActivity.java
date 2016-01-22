@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.user.animedownloader.Engines.AnimeRyuanime;
-
 public class MainActivity extends AppCompatActivity {
     Button downloadButton;
     EditText input;
@@ -33,15 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-             AnimeRyuanime anime =    new AnimeRyuanime(MainActivity.this);
-                anime.loadDataAsync(input.getText().toString());
+             EngineManager engineManager = new EngineManager(MainActivity.this,input.getText().toString());
+                engineManager.execute();
 
-
-        //         AnimeGogo_tv anime = new AnimeGogo_tv(MainActivity.this);
-       // anime.loadDataAsync(input.getText().toString());
-
-       //         AnimeNova anime = new AnimeNova(MainActivity.this);
-       //         anime.loadDataAsync(input.getText().toString());
 
 
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
