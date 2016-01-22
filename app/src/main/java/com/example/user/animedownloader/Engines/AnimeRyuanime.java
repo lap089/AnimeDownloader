@@ -25,6 +25,7 @@ public class AnimeRyuanime {
     String downloadLink;
     boolean isType3 = false;
     Context context;
+    String title;
     ProgressDialog mProgressDialog;
 
    public AnimeRyuanime(Context context)
@@ -68,6 +69,9 @@ public class AnimeRyuanime {
 
             try {
                 doc = Jsoup.connect(url[0]).get();
+
+                Elements name = doc.select("title");
+                title = name.text() + "-AnimeDownloader";
 
                 Elements link = doc.select("[SRC]");
                 String videoUrl = "";
@@ -132,21 +136,21 @@ public class AnimeRyuanime {
             if (type == 1) {
                 String template = "http://" + srv + ".myvidstream.net:182/d/";
                 String dataType = ".mp4";
-                String name = "AnimeDownloader";
-                downloadLink = template + result + "/" + name + dataType + "?start=0";
+
+                downloadLink = template + result + "/" + title + dataType + "?start=0";
 
             } else if(isType3){
                 String template = "http://fs1.mp4engine.com:182/d/";
                 String dataType = ".mp4";
-                String name = "AnimeDownloader";
-                downloadLink = template + result + "/" + name + dataType;
+
+                downloadLink = template + result + "/" + title + dataType;
             }
             else
             {
                 String template = "http://mp4engine.com:182/d/";
                 String dataType = ".mp4";
-                String name = "AnimeDownloader";
-                downloadLink = template + result + "/" + name + dataType;
+
+                downloadLink = template + result + "/" + title + dataType;
             }
 
             if (result == "")

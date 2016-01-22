@@ -60,6 +60,7 @@ public class AnimeGogo_tv {
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
             // Show progressdialog
             mProgressDialog.show();
         }
