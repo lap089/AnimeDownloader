@@ -1,8 +1,10 @@
 package com.example.user.animedownloader;
 
 import android.content.Context;
+import android.view.View;
 
 import com.example.user.animedownloader.Engines.AnimeGogo_tv;
+import com.example.user.animedownloader.Engines.AnimeKissanime;
 import com.example.user.animedownloader.Engines.AnimeNova;
 import com.example.user.animedownloader.Engines.AnimeRyuanime;
 
@@ -26,6 +28,7 @@ public class EngineManager {
                 add("animenova");
                 add("ryuanime");
                 add("gogoanime");
+                add("kissanime");
             }
         };
     }
@@ -33,6 +36,7 @@ public class EngineManager {
     public void execute()
     {
         int index = 0;
+        MainActivity.webView.setVisibility(View.GONE);
         for(String site : sites)
         {
             if(url.contains(site))
@@ -50,6 +54,10 @@ public class EngineManager {
         else if(index == 2)
         {
             new AnimeGogo_tv(context).loadDataAsync(url);
+        }
+        else if(index == 3)
+        {
+            new AnimeKissanime(context).loadDataAsync(url);
         }
 
     }

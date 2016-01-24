@@ -13,6 +13,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 /**
  * Created by user on 1/20/2016.
@@ -71,7 +72,7 @@ public class AnimeRyuanime {
                 doc = Jsoup.connect(url[0]).get();
 
                 Elements name = doc.select("title");
-                title = name.text() + "-AnimeDownloader";
+                title = URLEncoder.encode(name.text().replace("/", ""), "utf-8")   + "-AnimeDownloader";
 
                 Elements link = doc.select("[SRC]");
                 String videoUrl = "";
@@ -156,7 +157,7 @@ public class AnimeRyuanime {
             if (result == "")
                 downloadLink = "Fail!";
 
-
+            Log.d("Check downloadlink: ", downloadLink);
                Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
                 context.startActivity(intent);

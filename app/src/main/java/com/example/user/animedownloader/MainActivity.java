@@ -3,6 +3,7 @@ package com.example.user.animedownloader;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button downloadButton;
     EditText input;
+  public static  WebView webView;
 
 
     @Override
@@ -19,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
         downloadButton = (Button) findViewById(R.id.down);
         input = (EditText) findViewById(R.id.input);
+        webView = (WebView) findViewById(R.id.web);
+        webView.setVisibility(View.GONE);
+
+
+
+
+       // new AnimeKissanime(this).loadDataAsync("https://kissanime.to/Anime/Umishou/Episode-004?id=41080");
+
+
 
 
 
@@ -48,5 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
+
+
+
 }
