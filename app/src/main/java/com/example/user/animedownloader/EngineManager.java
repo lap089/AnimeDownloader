@@ -19,6 +19,15 @@ public class EngineManager {
     Context context;
     String url;
     ArrayList<String> sites;
+   public static ArrayList<String> currentSupportSites = new ArrayList<String>(){
+       {
+           add("http://www.animenova.org");
+           add("http://www.ryuanime.com");
+           add("http://www.gogoanime.io");
+           add("http://www.kissanime.to");
+           add("http://www.watchcartoononline.com");
+       }
+   };
 
     public EngineManager(Context context,String url)
     {
@@ -33,6 +42,17 @@ public class EngineManager {
                 add("watchcartoononline");
             }
         };
+
+    }
+
+    public static String getSupportedSites()
+    {
+        String list = "Supported sites: \n";
+        for(String site : currentSupportSites)
+        {
+            list = list + site + "\n";
+        }
+        return list;
     }
 
     public void execute()

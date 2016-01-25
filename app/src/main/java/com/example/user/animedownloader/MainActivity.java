@@ -1,6 +1,8 @@
 package com.example.user.animedownloader;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,11 +11,13 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button downloadButton;
     EditText input;
+    TextView supportedList;
   public static  WebView webView;
 
 
@@ -25,7 +29,11 @@ public class MainActivity extends AppCompatActivity {
         downloadButton = (Button) findViewById(R.id.down);
         input = (EditText) findViewById(R.id.input);
         webView = (WebView) findViewById(R.id.web);
+        supportedList = (TextView) findViewById(R.id.supported_list);
         webView.setVisibility(View.VISIBLE);
+
+
+        supportedList.setText(EngineManager.getSupportedSites());
 
 
 //        MainActivity.webView.getSettings().setJavaScriptEnabled(true);
@@ -69,18 +77,16 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                      EngineManager engineManager = new EngineManager(MainActivity.this, input.getText().toString());
-                        engineManager.execute();
+      //                EngineManager engineManager = new EngineManager(MainActivity.this, input.getText().toString());
+      //                  engineManager.execute();
 
 
-     //           String url = "http://www.watchcartoononline.com/shomin-sample-episode-11-english-dubbed";
-     //           new AnimeWatchcartoononline(MainActivity.this).loadDataAsync(url);
-//                String downloadLink = "http://lb.watchanimesub.net/video/Shomin%20Sample%20English%20Dubbed/PHF%20Shomin%20Sample%20-%201x11%20-%20Is%20This%20Not%20the%20Sky.mp4?st=BJn6vuFTLYI1osZ2-eKrJw&e=1453730106";
-//downloadLink = "http://media30.watchanimesub.net/video/Youkai%20Watch%20English%20Dubbed/Yo-Kai%20Watch%20-%20026%20-%20Yo-Kai%20Espy-Yo-Kai%20Peckpocket-Komasan%20in%20Love%20Episode%205.mp4?st=e0ix1hUal9GGmo7K7g_nIw&e=1453729528";
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
-//
-//                startActivity(intent);
+
+                String downloadLink = "https://lh3.googleusercontent.com/xNaZmRqAugcXgQCbYAfidoMtq6g-QdMmeyDdvKtAN3Y=m18";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse(downloadLink), "video/flv");
+
+                startActivity(intent);
 
             }
         });
