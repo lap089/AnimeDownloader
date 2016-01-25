@@ -73,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
                         engineManager.execute();
 
 
-         //       String url = "http://www.watchcartoononline.com/angel-tales-episode-2-english-dubbed";
-         //       new AnimeWatchcartoononline(MainActivity.this).loadDataAsync(url);
-
-
+     //           String url = "http://www.watchcartoononline.com/shomin-sample-episode-11-english-dubbed";
+     //           new AnimeWatchcartoononline(MainActivity.this).loadDataAsync(url);
+//                String downloadLink = "http://lb.watchanimesub.net/video/Shomin%20Sample%20English%20Dubbed/PHF%20Shomin%20Sample%20-%201x11%20-%20Is%20This%20Not%20the%20Sky.mp4?st=BJn6vuFTLYI1osZ2-eKrJw&e=1453730106";
+//downloadLink = "http://media30.watchanimesub.net/video/Youkai%20Watch%20English%20Dubbed/Yo-Kai%20Watch%20-%20026%20-%20Yo-Kai%20Espy-Yo-Kai%20Peckpocket-Komasan%20in%20Love%20Episode%205.mp4?st=e0ix1hUal9GGmo7K7g_nIw&e=1453729528";
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
 //

@@ -92,7 +92,7 @@ public class AnimeWatchcartoononline {
         mProgressDialog.setMessage("Loading...");
         mProgressDialog.setIndeterminate(false);
         mProgressDialog.setCanceledOnTouchOutside(false);
-        // Show progressdialog
+      //   Show progressdialog
         mProgressDialog.show();
         // url = "http://www.ryuanime.com/watch/anime/dubbed/seraph-of-the-end-battle-in-nagoya-episode-4";
         new GetVideoLinkAsync().execute(url);
@@ -117,19 +117,21 @@ public class AnimeWatchcartoononline {
             try {
                 doc = Jsoup.connect(url[0]).userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36").get();
 
-            Elements tabs = doc.select("div[class=postTabs_divs postTabs_curr_div]");
+            Elements tabs = doc.select("div[class^=postTabs_divs]");
+          //      Elements tabs = doc.select("div[class=postTabs_divs]");
             Element name = doc.select("title").first();
              title = name.text();
 
-            Element tab =  tabs.first();
-            Elements links = tab.select("iframe");
 
-                for( Element link : links)
-                {
-                   videoLink.add(link.attr("src"));
-                    Log.d("Check videolink:", link.attr("src"));
-                }
+             for(Element tab :  tabs) {
+                Elements links = tab.select("iframe");
 
+                 for (Element link : links) {
+                     videoLink.add(link.attr("src"));
+                     Log.d("Check videolink:", link.attr("src"));
+                 }
+
+             }
                 return "Success";
             } catch (IOException e) {
                 e.printStackTrace();
@@ -204,6 +206,7 @@ public class AnimeWatchcartoononline {
                     ++lastindex;
                 String stream = scriptString.substring(firstindex,lastindex);
              //   stream = stream.replaceFirst("http://l","http://media");
+                stream = stream.replaceFirst("lb","media37");
                 linkList.add(stream);
                 Log.d("Check downloadlink1",stream);
                 downloadOptions.add(title + "-" + num);
@@ -223,6 +226,7 @@ public class AnimeWatchcartoononline {
                         else stream = s;
 
                     }
+                stream = stream.replaceFirst("lb","media37");
                 stream = stream.substring(5);
                 linkList.add(stream);
                 Log.d("Check downloadlink2", stream);
@@ -286,7 +290,7 @@ public class AnimeWatchcartoononline {
 
                         downloadLink = linkList.get(item);
                         Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
+                        intent.setDataAndType(Uri.parse(downloadLink), "video/flv");
                         context.startActivity(intent);
 
                     }
