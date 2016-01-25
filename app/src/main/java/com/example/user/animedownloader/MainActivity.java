@@ -1,8 +1,6 @@
 package com.example.user.animedownloader;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         input = (EditText) findViewById(R.id.input);
         webView = (WebView) findViewById(R.id.web);
         supportedList = (TextView) findViewById(R.id.supported_list);
-        webView.setVisibility(View.VISIBLE);
+        webView.setVisibility(View.GONE);
 
 
         supportedList.setText(EngineManager.getSupportedSites());
@@ -62,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//        String url = "http://www.watchcartoononline.com/aki-sora-yume-no-naka-episode-1-english-subbed";
-//        new AnimeWatchcartoononline(this).loadDataAsync(url);
-
 
 
         downloadButton.setOnClickListener(new View.OnClickListener()
@@ -77,16 +72,16 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-      //                EngineManager engineManager = new EngineManager(MainActivity.this, input.getText().toString());
-      //                  engineManager.execute();
+                      EngineManager engineManager = new EngineManager(MainActivity.this, input.getText().toString());
+                        engineManager.execute();
 
 
 
-                String downloadLink = "https://lh3.googleusercontent.com/xNaZmRqAugcXgQCbYAfidoMtq6g-QdMmeyDdvKtAN3Y=m18";
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(Uri.parse(downloadLink), "video/flv");
-
-                startActivity(intent);
+//                String downloadLink = "http://animeland.tv/download.php?id=33784";
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setDataAndType(Uri.parse(downloadLink), "video/flv");
+//
+//                startActivity(intent);
 
             }
         });

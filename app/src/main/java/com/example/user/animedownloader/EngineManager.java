@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.user.animedownloader.Engines.AnimeGogo_tv;
 import com.example.user.animedownloader.Engines.AnimeKissanime;
+import com.example.user.animedownloader.Engines.AnimeLand_tv;
 import com.example.user.animedownloader.Engines.AnimeNova;
 import com.example.user.animedownloader.Engines.AnimeRyuanime;
 import com.example.user.animedownloader.Engines.AnimeWatchcartoononline;
@@ -26,6 +27,7 @@ public class EngineManager {
            add("http://www.gogoanime.io");
            add("http://www.kissanime.to");
            add("http://www.watchcartoononline.com");
+           add("http://www.animeland.tv");
        }
    };
 
@@ -40,6 +42,7 @@ public class EngineManager {
                 add("gogoanime");
                 add("kissanime");
                 add("watchcartoononline");
+                add("animeland");
             }
         };
 
@@ -84,6 +87,10 @@ public class EngineManager {
         else if(index == 4)
         {
             new AnimeWatchcartoononline(context).loadDataAsync(url);
+        }
+        else if(index == 5)
+        {
+            new AnimeLand_tv(context).loadDataAsync(url);
         }
 
     }

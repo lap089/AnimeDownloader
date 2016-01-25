@@ -23,6 +23,8 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.github.rey5137:material:1.2.2'
     compile files('C:/Users/user/Workspace/AnimeDownloader/libs/jsoup-1.8.2.jar')
     compile files('C:/Users/user/Workspace/AnimeDownloader/libs/js.jar')
 }
