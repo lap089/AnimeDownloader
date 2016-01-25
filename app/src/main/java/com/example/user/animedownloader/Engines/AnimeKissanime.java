@@ -59,6 +59,9 @@ public class AnimeKissanime {
                         "('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');");
                 //   Log.d("Check jsoup:", url);
             }
+
+
+
         });
 
 

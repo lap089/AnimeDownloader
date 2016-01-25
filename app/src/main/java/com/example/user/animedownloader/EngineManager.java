@@ -7,6 +7,7 @@ import com.example.user.animedownloader.Engines.AnimeGogo_tv;
 import com.example.user.animedownloader.Engines.AnimeKissanime;
 import com.example.user.animedownloader.Engines.AnimeNova;
 import com.example.user.animedownloader.Engines.AnimeRyuanime;
+import com.example.user.animedownloader.Engines.AnimeWatchcartoononline;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class EngineManager {
                 add("ryuanime");
                 add("gogoanime");
                 add("kissanime");
+                add("watchcartoononline");
             }
         };
     }
@@ -58,6 +60,10 @@ public class EngineManager {
         else if(index == 3)
         {
             new AnimeKissanime(context).loadDataAsync(url);
+        }
+        else if(index == 4)
+        {
+            new AnimeWatchcartoononline(context).loadDataAsync(url);
         }
 
     }
