@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         downloadButton.setOnClickListener(new View.OnClickListener()
 
         {
@@ -72,14 +73,16 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                      EngineManager engineManager = new EngineManager(MainActivity.this, input.getText().toString());
-                        engineManager.execute();
 
+                         EngineManager engineManager = new EngineManager(MainActivity.this, input.getText().toString());
+                           engineManager.execute();
 
+//                String url = "http://justdubsonline.net/please-teacher-ova#ep1-tab";
+//                new AnimeJustdubsonline(MainActivity.this).loadDataAsync(url);
 
-//                String downloadLink = "http://animeland.tv/download.php?id=33784";
+//                String downloadLink = "http://www6.mp4upload.com:182/d/sgx2nfkvz3b4quuo36uaensrkmay6kcfzoun2wvwcyy4l2bxjhpvo7oj/video.mp4 ";
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setDataAndType(Uri.parse(downloadLink), "video/flv");
+//                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
 //
 //                startActivity(intent);
 
@@ -95,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
     class MyJavaScriptInterface {
 

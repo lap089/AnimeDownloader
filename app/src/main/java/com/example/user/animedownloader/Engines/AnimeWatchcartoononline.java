@@ -14,6 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.user.animedownloader.MainActivity;
+import com.example.user.animedownloader.R;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -22,6 +23,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import dmax.dialog.SpotsDialog;
 
 /**
  * Created by user on 1/24/2016.
@@ -36,7 +39,7 @@ public class AnimeWatchcartoononline {
     ArrayList<String> videoLink;
     android.content.Context context;
     ArrayList<GetDownloadLinkAsync> getDownloadLinkAsyncsList;
-
+    AlertDialog dialog;
     ProgressDialog mProgressDialog;
 
     int num = 1;
@@ -93,7 +96,11 @@ public class AnimeWatchcartoononline {
         mProgressDialog.setIndeterminate(false);
         mProgressDialog.setCanceledOnTouchOutside(false);
       //   Show progressdialog
-        mProgressDialog.show();
+      //  mProgressDialog.show();
+
+       dialog = new SpotsDialog(context, R.style.CustomProgressDialog);
+        dialog.show();
+
         // url = "http://www.ryuanime.com/watch/anime/dubbed/seraph-of-the-end-battle-in-nagoya-episode-4";
         new GetVideoLinkAsync().execute(url);
     }
@@ -278,7 +285,8 @@ public class AnimeWatchcartoononline {
             //    getDownloadLinkAsyncsList.add(getDownloadLinkAsync);
             }
             else {
-                mProgressDialog.dismiss();
+              //  mProgressDialog.dismiss();
+                dialog.dismiss();
 
 
                 String[] Names = new String[downloadOptions.size()];

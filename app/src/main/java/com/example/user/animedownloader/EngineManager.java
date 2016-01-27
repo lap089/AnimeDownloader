@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.example.user.animedownloader.Engines.AnimeGogo_tv;
+import com.example.user.animedownloader.Engines.AnimeJustdubsonline;
 import com.example.user.animedownloader.Engines.AnimeKissanime;
 import com.example.user.animedownloader.Engines.AnimeLand_tv;
 import com.example.user.animedownloader.Engines.AnimeNova;
@@ -28,6 +29,7 @@ public class EngineManager {
            add("http://www.kissanime.to");
            add("http://www.watchcartoononline.com");
            add("http://www.animeland.tv");
+           add("http://www.justdubsonline.net");
        }
    };
 
@@ -43,6 +45,7 @@ public class EngineManager {
                 add("kissanime");
                 add("watchcartoononline");
                 add("animeland");
+                add("justdubsonline");
             }
         };
 
@@ -91,6 +94,10 @@ public class EngineManager {
         else if(index == 5)
         {
             new AnimeLand_tv(context).loadDataAsync(url);
+        }
+        else if(index == 6)
+        {
+            new AnimeJustdubsonline(context).loadDataAsync(url);
         }
 
     }
