@@ -71,14 +71,15 @@ public class AnimeLand_tv {
                 //        String url = "http://gogoanime.io/sushi-police-episode-3";
 
                 doc = Jsoup.connect(url[0]).get();
-                Elements downloads = doc.select("div[style=float:right;]");
+                Elements downloads = doc.select("a[style=\"\"]");
 
                 for(Element download : downloads)
-                if(download.text().contains("Download Episode"))
-                    downloadLink = "http://animeland.tv" + download.getElementsByTag("a").attr("href");
+                if(download.text().contains("Download Episode") || download.text().contains("DOWNLOAD"))
+                    downloadLink = download.getElementsByTag("a").attr("href");
 
-
-                Log.d("Check animeland:", downloadLink);
+                if(!downloadLink.contains("animeland"))
+                   downloadLink = "http://animeland.tv" + downloadLink;
+                            Log.d("Check animeland:", downloadLink);
 
                 return "Success";
             }catch(IOException e){

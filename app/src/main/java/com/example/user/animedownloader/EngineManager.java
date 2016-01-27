@@ -3,6 +3,7 @@ package com.example.user.animedownloader;
 import android.content.Context;
 import android.view.View;
 
+import com.example.user.animedownloader.Engines.AnimeAnimepalm;
 import com.example.user.animedownloader.Engines.AnimeGogo_tv;
 import com.example.user.animedownloader.Engines.AnimeJustdubsonline;
 import com.example.user.animedownloader.Engines.AnimeKissanime;
@@ -30,6 +31,7 @@ public class EngineManager {
            add("http://www.watchcartoononline.com");
            add("http://www.animeland.tv");
            add("http://www.justdubsonline.net");
+           add("http://www.animepalm.net");
        }
    };
 
@@ -46,6 +48,7 @@ public class EngineManager {
                 add("watchcartoononline");
                 add("animeland");
                 add("justdubsonline");
+                add("animepalm");
             }
         };
 
@@ -98,6 +101,10 @@ public class EngineManager {
         else if(index == 6)
         {
             new AnimeJustdubsonline(context).loadDataAsync(url);
+        }
+        else if(index == 7)
+        {
+            new AnimeAnimepalm(context).loadDataAsync(url);
         }
 
     }
