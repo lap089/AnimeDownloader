@@ -10,6 +10,7 @@ import com.example.user.animedownloader.Engines.AnimeKissanime;
 import com.example.user.animedownloader.Engines.AnimeLand_tv;
 import com.example.user.animedownloader.Engines.AnimeNova;
 import com.example.user.animedownloader.Engines.AnimeRyuanime;
+import com.example.user.animedownloader.Engines.AnimeTheanimeplace;
 import com.example.user.animedownloader.Engines.AnimeWatchcartoononline;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class EngineManager {
            add("http://www.animeland.tv");
            add("http://www.justdubsonline.net");
            add("http://www.animepalm.net");
+           add("http://www.theanimeplace.to");
+           ;
        }
    };
 
@@ -49,6 +52,7 @@ public class EngineManager {
                 add("animeland");
                 add("justdubsonline");
                 add("animepalm");
+                add("theanimeplace");
             }
         };
 
@@ -105,6 +109,10 @@ public class EngineManager {
         else if(index == 7)
         {
             new AnimeAnimepalm(context).loadDataAsync(url);
+        }
+        else if(index == 8)
+        {
+            new AnimeTheanimeplace(context).loadDataAsync(url);
         }
 
     }

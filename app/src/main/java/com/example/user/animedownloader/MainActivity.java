@@ -73,18 +73,18 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-              //  String url = "http://www.animepalm.net/afro-samurai-episode-1-english-dubbed/";
+             //   String url = "http://theanimeplace.co/photon-the-idiot-adventures-episode-5-english-subbed/";
               //  url = "http://www.animepalm.net/agent-aika-episode-2-english-dubbed/";
                          EngineManager engineManager = new EngineManager(MainActivity.this,input.getText().toString());
                         engineManager.execute();
 
 //                String url = "http://justdubsonline.net/please-teacher-ova#ep1-tab";
 //                new AnimeJustdubsonline(MainActivity.this).loadDataAsync(url);
-//
-//                String downloadLink = "https://r12---sn-npo7en7d.googlevideo.com/videoplayback?id=d4b6c8428d7a23b6&itag=22&source=picasa&requiressl=yes&mm=30&mn=sn-npo7en7d&ms=nxu&mv=m&nh=IgpwcjAyLnNpbjAzKgkxMjcuMC4wLjE&pl=24&mime=video/mp4&lmt=1437166660540831&mt=1453888309&ip=115.78.64.41&ipbits=8&expire=1453917172&sparams=ip,ipbits,expire,id,itag,source,requiressl,mm,mn,ms,mv,nh,pl,mime,lmt&signature=09A8D98F447BFA029E3CA235C48E8933BA16E955.719865C49F0AA4FDA358765AE14BEFC1B75FDAA3&key=ck2";
+
+//                String downloadLink = "http://us-11.blastvideo.ws/file.php?v_id=737dfa253270d83924bfadc354d3643379fd1e25/Ul51u3T8KY&res=360P";
+//                downloadLink = "http://us-7.blastvideo.ws/ubox_file.php?v_id=737dfa253270d83924bfadc354d3643379fd1e25/925/DOKKOIDA08.flv";
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
-//
 //                startActivity(intent);
 
             }

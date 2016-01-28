@@ -30,7 +30,6 @@ public class AnimeLand_tv {
     public AnimeLand_tv(Context context)
     {
         this.context = context;
-
     }
 
 
