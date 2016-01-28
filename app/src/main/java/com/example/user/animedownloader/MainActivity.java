@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-             //   String url = "http://theanimeplace.co/photon-the-idiot-adventures-episode-5-english-subbed/";
-              //  url = "http://www.animepalm.net/agent-aika-episode-2-english-dubbed/";
+               // String url = "http://www.animetycoon.net/canaan-episode-6/";
+            //        url = "http://www.animetycoon.net/dagger-of-kamui/";
                          EngineManager engineManager = new EngineManager(MainActivity.this,input.getText().toString());
                         engineManager.execute();
 
@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
 //                new AnimeJustdubsonline(MainActivity.this).loadDataAsync(url);
 
 //                String downloadLink = "http://us-11.blastvideo.ws/file.php?v_id=737dfa253270d83924bfadc354d3643379fd1e25/Ul51u3T8KY&res=360P";
-//                downloadLink = "http://us-7.blastvideo.ws/ubox_file.php?v_id=737dfa253270d83924bfadc354d3643379fd1e25/925/DOKKOIDA08.flv";
+//                downloadLink = "http://node4.uploadcrazy.net/dl/shura-no-toki03.mp4?st=wOyO0IT-gwBxIq9QkjEVUQ&e=1454011281";
+//                downloadLink="https://lh3.googleusercontent.com/G4GaPO9SGWz-zCtzX0Yq2Dw4Q3mHq4YAGnOHRKklKGI=m18";
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
 //                startActivity(intent);

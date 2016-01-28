@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.example.user.animedownloader.Engines.AnimeAnimepalm;
+import com.example.user.animedownloader.Engines.AnimeAnimetycoon;
 import com.example.user.animedownloader.Engines.AnimeGogo_tv;
 import com.example.user.animedownloader.Engines.AnimeJustdubsonline;
 import com.example.user.animedownloader.Engines.AnimeKissanime;
@@ -34,6 +35,7 @@ public class EngineManager {
            add("http://www.justdubsonline.net");
            add("http://www.animepalm.net");
            add("http://www.theanimeplace.to");
+           add("http://www.animetycoon.net");
            ;
        }
    };
@@ -53,6 +55,7 @@ public class EngineManager {
                 add("justdubsonline");
                 add("animepalm");
                 add("theanimeplace");
+                add("animetycoon");
             }
         };
 
@@ -113,6 +116,10 @@ public class EngineManager {
         else if(index == 8)
         {
             new AnimeTheanimeplace(context).loadDataAsync(url);
+        }
+        else if(index == 9)
+        {
+            new AnimeAnimetycoon(context).loadDataAsync(url);
         }
 
     }
