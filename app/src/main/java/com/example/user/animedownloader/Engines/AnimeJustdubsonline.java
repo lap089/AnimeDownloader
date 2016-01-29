@@ -73,7 +73,7 @@ public class AnimeJustdubsonline {
     {
         MainActivity.webView.getSettings().setJavaScriptEnabled(true);
         MainActivity.webView.getSettings().setLoadsImagesAutomatically(true);
-      //  MainActivity.webView.clearCache(false);
+        //  MainActivity.webView.clearCache(false);
 
         MainActivity.webView.addJavascriptInterface(new MyJavaScriptInterface(context), "HtmlViewer");
         MainActivity.webView.setVisibility(View.VISIBLE);
@@ -95,8 +95,8 @@ public class AnimeJustdubsonline {
 
                 view.setWebViewClient(new WebViewClient() {
                     public void onPageFinished( WebView view, String url) {
-                                view.loadUrl("javascript:window.HtmlViewer.showHTML" +
-                                        "('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');");
+                        view.loadUrl("javascript:window.HtmlViewer.showHTML" +
+                                "('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');");
 
 
                     }
@@ -129,13 +129,13 @@ public class AnimeJustdubsonline {
             public void onCancel(DialogInterface dialog) {
                 getDownloadLinkAsync.cancel(true);
                 MainActivity.webView.stopLoading();
-            //    MainActivity.webView.pauseTimers();
-           MainActivity.webView.setWebViewClient(null);
+                //    MainActivity.webView.pauseTimers();
+                MainActivity.webView.setWebViewClient(null);
                 MainActivity.webView.setVisibility(View.GONE);
             }
         });
 
-      //  dialogListDownload.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        //  dialogListDownload.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         listViewDownload = (ListView) dialogListDownload.findViewById(R.id.downloadlist);
         loadingProgress = (ProgressView) dialogListDownload.findViewById(R.id.loadingprogress);
         loadingProgress.applyStyle(R.style.LightInColorCircularProgressView);
@@ -161,8 +161,8 @@ public class AnimeJustdubsonline {
 
         // url = "http://www.ryuanime.com/watch/anime/dubbed/seraph-of-the-end-battle-in-nagoya-episode-4";
 
-      //  MainActivity.webView.loadUrl(url);
-    //    MainActivity.webView.getSettings().setJavaScriptEnabled(true);
+        //  MainActivity.webView.loadUrl(url);
+        //    MainActivity.webView.getSettings().setJavaScriptEnabled(true);
         new GetVideoLinkAsync().execute(url);
     }
 
@@ -172,7 +172,7 @@ public class AnimeJustdubsonline {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-     //       mProgressDialog.setMessage("Get video links");
+            //       mProgressDialog.setMessage("Get video links");
             // Create a progressdialog
 
         }
@@ -198,7 +198,7 @@ public class AnimeJustdubsonline {
                     else if(data_target.select("a").attr("href").contains("title"))
                         title = data_target.select("a").text();
                 }
-                videosrc = "http://justdubsonline.net" + videosrc;
+                videosrc = "http://justdubsonline.net" + "/" +  videosrc;
 
                 doc = Jsoup.connect(videosrc).userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36").get();
 
@@ -213,7 +213,7 @@ public class AnimeJustdubsonline {
                         videoref =  videoref.replace("embed-", "");
                         videoref = videoref.substring(0,videoref.lastIndexOf('-'));
                     }
-               //     Println(videoref);
+                    //     Println(videoref);
                     videoLink.add(videoref);
                 }
 
@@ -238,13 +238,15 @@ public class AnimeJustdubsonline {
                 }
 
 
+                Log.d("Check just:","success");
+
                 return "Success";
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
 
-           return "Fail";
+            return "Fail";
 
 
         }
@@ -274,9 +276,9 @@ public class AnimeJustdubsonline {
                 adapterDownloadLink = new ArrayAdapter<>(context,
                         android.R.layout.simple_list_item_1, android.R.id.text1, arrayValue);
 
-                    dialogListDownload.show();
+                dialogListDownload.show();
                 listViewDownload.setAdapter(adapterDownloadLink);
-               //     adapterDownloadLink.notifyDataSetChanged();
+                //     adapterDownloadLink.notifyDataSetChanged();
             }
 
 
@@ -341,7 +343,7 @@ public class AnimeJustdubsonline {
                 rhino.setOptimizationLevel(-1);
                 Scriptable scope = rhino.initStandardObjects();
 
-               codeConverted  =    rhino.evaluateString(scope,eval,"JavaScript", 1, null).toString();
+                codeConverted  =    rhino.evaluateString(scope,eval,"JavaScript", 1, null).toString();
 
             }
             else {
@@ -359,8 +361,8 @@ public class AnimeJustdubsonline {
 
 
 
-         int   firstindex = codeConverted.indexOf("file:") + 6;
-         int   lastindex = firstindex;
+            int   firstindex = codeConverted.indexOf("file:") + 6;
+            int   lastindex = firstindex;
             while(codeConverted.charAt(lastindex)!='\"') ++lastindex;
 
             downloadLink = codeConverted.substring(firstindex, lastindex);
@@ -389,7 +391,7 @@ public class AnimeJustdubsonline {
                 downloadLink = "";
 
 
-                //  mProgressDialog.dismiss();
+            //  mProgressDialog.dismiss();
             if(dialog.isShowing())
                 dialog.dismiss();
 
@@ -406,8 +408,8 @@ public class AnimeJustdubsonline {
 
             loadingProgress.stop();
 
-                MainActivity.webView.setVisibility(View.GONE);
-            }
+            MainActivity.webView.setVisibility(View.GONE);
+        }
 
 
 
@@ -432,8 +434,8 @@ public class AnimeJustdubsonline {
         public void showHTML(String html) {
 
             if(!html.contains("btn_download")) {
-            //      new android.support.v7.app.AlertDialog.Builder(ctx).setTitle("HTML").setMessage(html)
-            //              .setPositiveButton(android.R.string.ok, null).setCancelable(true).create().show();
+                //      new android.support.v7.app.AlertDialog.Builder(ctx).setTitle("HTML").setMessage(html)
+                //              .setPositiveButton(android.R.string.ok, null).setCancelable(true).create().show();
 
 
                 getDownloadLinkAsync.execute(html);

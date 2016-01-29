@@ -30,4 +30,5 @@ dependencies {
     compile 'com.github.jlmd:AnimatedCircleLoadingView:1.1.4@aar'
     compile files('C:/Users/user/Workspace/AnimeDownloader/libs/jsoup-1.8.2.jar')
     compile files('C:/Users/user/Workspace/AnimeDownloader/libs/js.jar')
+    compile 'huytranq.utility:resource:+'
 }

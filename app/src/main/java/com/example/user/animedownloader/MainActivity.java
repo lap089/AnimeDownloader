@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                // String url = "http://www.animetycoon.net/canaan-episode-6/";
             //        url = "http://www.animetycoon.net/dagger-of-kamui/";
-                         EngineManager engineManager = new EngineManager(MainActivity.this,input.getText().toString());
+                         EngineManager engineManager = new EngineManager(MainActivity.this,"http://justdubsonline.net/brothers-conflict#ep1-tab");
                         engineManager.execute();
 
 //                String url = "http://justdubsonline.net/please-teacher-ova#ep1-tab";
