@@ -75,18 +75,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-               // String url = "http://www.animetycoon.net/canaan-episode-6/";
-            //        url = "http://www.animetycoon.net/dagger-of-kamui/";
-                         EngineManager engineManager = new EngineManager(MainActivity.this,input.getText().toString());
+            String  url = "https://kissanime.to/Anime/Tayutama/Episode-005?id=39759";
+                         EngineManager engineManager = new EngineManager(MainActivity.this,url);
                         engineManager.execute();
 
 
 //                String url = "http://justdubsonline.net/please-teacher-ova#ep1-tab";
 //                new AnimeJustdubsonline(MainActivity.this).loadDataAsync(url);
 
-//                String downloadLink = "http://us-11.blastvideo.ws/file.php?v_id=737dfa253270d83924bfadc354d3643379fd1e25/Ul51u3T8KY&res=360P";
-//                downloadLink = "http://node4.uploadcrazy.net/dl/shura-no-toki03.mp4?st=wOyO0IT-gwBxIq9QkjEVUQ&e=1454011281";
-//               downloadLink = "http://www.animefreak.tv/sites/all/modules/custom/anime/stream.php?file=Bubuki+Buranki+Episode+1.mp4&e=h&st=h";
+//                String downloadLink = "http://hentaiplanet.info/RAW/Rance_01_Hikari_wo_Motomete_The_Animation_Episode_3_RAW.mp4";
+//                downloadLink = "http://videos02.hentaiupload.com/videos/9f01795347f1059abf22f4a39fbde729/565afe92.mp4";
+//                downloadLink = "http://37.48.81.2/B/BoyMeetsHaremTheAnimationVol.1.mp4?st=600JDtsOiH321Pyg6K4DKg&e=1454477171";
+//                downloadLink = "http://cdn.oose.io/i0quBBG300pB4se0vs03jQEoTj628TTUj6fjc7YBItHV7H2ExTj5Yy1gNMdlYOrV/video.mp4";
+//                downloadLink = "http://37.48.81.2/B/BoyMeetsHaremTheAnimationVol.1.mp4?st=kjklBkRuvsx4d-2tZn1wqA&e=1454486324";
+//                downloadLink = "http://hentaiplanet.info/archive/Kodomo no Jikan - 07 (Raw) [6E400530].mp4";
+//                downloadLink = "http://hentaiplanet.info/archive/Kodomo%20no%20Jikan%20-%2007%20(Raw)%20%5B6E400530%5D.mp4";
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
 //                startActivity(intent);

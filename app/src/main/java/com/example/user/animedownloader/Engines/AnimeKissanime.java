@@ -20,6 +20,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
@@ -48,9 +49,33 @@ public class AnimeKissanime {
 
     public void initialWebView()
     {
+        MainActivity.webView.clearHistory();
+        MainActivity.webView.clearCache(true);
+        MainActivity.webView.clearView();
+  //      MainActivity.webView.destroy();
+        MainActivity.webView.getSettings().setUserAgentString("Chrome/30.0.1599.69");
         MainActivity.webView.getSettings().setJavaScriptEnabled(true);
         MainActivity.webView.addJavascriptInterface(new MyJavaScriptInterface(context), "HtmlViewer");
         MainActivity.webView.setVisibility(View.VISIBLE);
+     //   MainActivity.webView.loadUrl("");
+
+//        new CountDownTimer(7000, 1000) {
+//
+//            public void onTick(long millisUntilFinished) {
+//
+//            }
+//
+//            public void onFinish() {
+//                MainActivity.webView.loadUrl("javascript:window.HtmlViewer.showHTML" +
+//                        "('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');");
+//
+//            }
+//        }.start();
+
+
+
+
+
 
         MainActivity.webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -111,7 +136,8 @@ public class AnimeKissanime {
             {
                 downloadOptions.add(title + "-" + option.text());
                 String encoded = option.attr("value");
-                linkList.add(decodeString(encoded));
+                String coded = decodeString(encoded);
+                linkList.add(coded);
 
             }
 
@@ -138,12 +164,7 @@ public class AnimeKissanime {
             builder.setTitle("Select links: ");
             builder.setItems(Names, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int item) {
-
-                    downloadLink = linkList.get(item);
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
-                    context.startActivity(intent);
-
+                new AnalyzeDownloadLinkAsync().execute(linkList.get(item));
                 }
 
             });
@@ -164,6 +185,65 @@ public class AnimeKissanime {
 
 
 
+
+
+
+    private class AnalyzeDownloadLinkAsync extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if (mProgressDialog != null)
+                mProgressDialog = null;
+            mProgressDialog = new ProgressDialog(context);
+            // Set progressdialog title
+            mProgressDialog.setTitle("Analizing link");
+            // Set progressdialog message
+            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            // Show progressdialog
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... url) {
+
+
+            try {
+               String coded = Jsoup.connect(url[0]).ignoreContentType(true)
+                        .userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36")
+                        .execute().url().toString();
+             return coded;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return "Fail";
+
+        }
+
+
+
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            // Set the bitmap into ImageView
+            //   imagemanga.setImageBitmap(result);
+            // Close progressdialog
+
+            mProgressDialog.dismiss();
+
+            downloadLink = result;
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
+            context.startActivity(intent);
+
+        }
+    }
+
+
     class MyJavaScriptInterface {
 
         private Context ctx;
@@ -176,7 +256,7 @@ public class AnimeKissanime {
         public void showHTML(String html) {
        //     new android.support.v7.app.AlertDialog.Builder(ctx).setTitle("HTML").setMessage(html)
        //             .setPositiveButton(android.R.string.ok, null).setCancelable(true).create().show();
-
+            if(html.contains("selectQuality"))
             new GetDownloadLinkAsync().execute(html);
 
             //   Log.d("Check Html: ", html);
