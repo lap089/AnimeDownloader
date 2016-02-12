@@ -75,21 +75,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            String  url = "https://kissanime.to/Anime/Tayutama/Episode-005?id=39759";
-                         EngineManager engineManager = new EngineManager(MainActivity.this,url);
+          //  String  url = "https://kissanime.to/Anime/Tayutama/Episode-005?id=39759";
+             //   String url = "http://www.gogoanime.com/ojisan-to-marshmallow-episode-6";
+                         EngineManager engineManager = new EngineManager(MainActivity.this,input.getText().toString());
                         engineManager.execute();
 
 
-//                String url = "http://justdubsonline.net/please-teacher-ova#ep1-tab";
-//                new AnimeJustdubsonline(MainActivity.this).loadDataAsync(url);
 
-//                String downloadLink = "http://hentaiplanet.info/RAW/Rance_01_Hikari_wo_Motomete_The_Animation_Episode_3_RAW.mp4";
-//                downloadLink = "http://videos02.hentaiupload.com/videos/9f01795347f1059abf22f4a39fbde729/565afe92.mp4";
-//                downloadLink = "http://37.48.81.2/B/BoyMeetsHaremTheAnimationVol.1.mp4?st=600JDtsOiH321Pyg6K4DKg&e=1454477171";
-//                downloadLink = "http://cdn.oose.io/i0quBBG300pB4se0vs03jQEoTj628TTUj6fjc7YBItHV7H2ExTj5Yy1gNMdlYOrV/video.mp4";
-//                downloadLink = "http://37.48.81.2/B/BoyMeetsHaremTheAnimationVol.1.mp4?st=kjklBkRuvsx4d-2tZn1wqA&e=1454486324";
-//                downloadLink = "http://hentaiplanet.info/archive/Kodomo no Jikan - 07 (Raw) [6E400530].mp4";
-//                downloadLink = "http://hentaiplanet.info/archive/Kodomo%20no%20Jikan%20-%2007%20(Raw)%20%5B6E400530%5D.mp4";
+//                String downloadLink = "http://gateway.play44.net:3010/old/at/nw/the_idolmaster_cinderella_girls_2nd_-_01x.mp4?st=yiD_m5hd-IITrUlGQ2zpIg&e=1455272517&server=playbb.me";
+//
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setDataAndType(Uri.parse(downloadLink), "video/mp4");
 //                startActivity(intent);
